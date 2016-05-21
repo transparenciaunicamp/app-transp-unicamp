@@ -1,5 +1,5 @@
 var currentClass = 'one';
-var nextClass = 'anotherone';
+var nextClass = 'anotherOne';
 
 var FeedTable = {
     addRow: function(message) {
