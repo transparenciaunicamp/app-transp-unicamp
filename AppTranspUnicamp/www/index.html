@@ -16,10 +16,13 @@
 
     <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="lib/fastclick.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/facebook.js"></script>
+        <script type="text/javascript" charset="utf-8" src="lib/table.js"></script>
     <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>  
-
+    <script>
+        Facebook.start();
+    </script>
     <script src='cordova.js'></script>
-        
     <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
 
@@ -64,7 +67,9 @@
 
             <div class="panel" data-title="Timeline" id="tab2" >
                 <br>
-                This is view for second Tab
+                <table id="myTable">
+                    
+                </table>
             </div>
 
             <div class="panel" data-title="FAQ" id="tab3">
