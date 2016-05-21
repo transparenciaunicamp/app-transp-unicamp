@@ -41,7 +41,7 @@
     
     <div class="view">
         <footer>
-            <a href="#tab1" class="icon location" onclick="$.afui.clearHistory(); showMap()">Mapa</a>
+            <a href="#tab1" class="icon location" onclick="$.afui.clearHistory();showMap()">Mapa</a>
             <a href="#tab2" class="icon home" onclick="$.afui.clearHistory()">Timeline</a>
             <a href="#tab3" class="icon question" onclick="$.afui.clearHistory()">FAQ</a>
         </footer>
@@ -49,7 +49,8 @@
         <div class="pages">
 
             <!--Tab View Pages-->
-            <div class="panel mapHere" data-title="Mapa" id="tab1">   
+            <div class="panel mapHere" data-title="Mapa" id="tab1">
+                
             </div>
 
             <div class="panel" data-title="Timeline" id="tab2" data-selected="true">
@@ -65,6 +66,7 @@
         </div>
         
     </div>
+
     
 <script type="text/javascript">
     
@@ -74,6 +76,8 @@
         var map = $("<br><div id='map'></div>")
         if(!mapShown) {
             map.appendTo('.mapHere')
+//            map.invalidateSize()
+//            map.resize()
             mapService()
             mapShown = true
         }
@@ -82,6 +86,7 @@
     function mapService() {
         L.mapbox.accessToken = 'pk.eyJ1IjoidHJhbnNwYXJlbmNpYXVuaWNhbXAiLCJhIjoiY2lvYWYzdzhsMDNpN3cxa3F0M2czaGtraiJ9.Snu_l3HM0COOW0V39I0LvA';
         var map = L.mapbox.map('map', 'transparenciaunicamp.057nf8mf')
+//        .setView()
         map.featureLayer.on('click', function(e) {
             map.panTo(e.layer.getLatLng());
         });

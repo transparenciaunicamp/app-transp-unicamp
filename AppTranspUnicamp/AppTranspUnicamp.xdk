@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-tab-view-js/sample.zip",
       "projectGuid": "8bac9323-c3b3-40f6-9d54-4246de1357be",
-      "lastModifiedDate": 1463824570202,
+      "lastModifiedDate": 1463840364462,
       "creationDate": 1463824527375
     },
     "sourceDirectory": "www",
@@ -132,7 +132,8 @@
         "name_": "iOS",
         "preferences_": {
           "ios-configuration": "adhoc",
-          "deployment-target": "8.0"
+          "deployment-target": "8.0",
+          "Fullscreen": false
         },
         "isActive_": true,
         "appName_": "AppTranspUnicamp",
