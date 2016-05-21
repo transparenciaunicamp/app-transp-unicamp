@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-tab-view-js/sample.zip",
       "projectGuid": "8bac9323-c3b3-40f6-9d54-4246de1357be",
-      "lastModifiedDate": 1463854321529,
+      "lastModifiedDate": 1463856281670,
       "creationDate": 1463824527375
     },
     "sourceDirectory": "www",
@@ -125,7 +125,7 @@
         "runtime_": "Crosswalk with Cordova 3.x",
         "name_": "Android",
         "preferences_": {
-          "android-minSdkVersion": "14",
+          "android-minSdkVersion": "15",
           "android-targetSdkVersion": "21",
           "android-installLocation": "auto",
           "android-signed": true

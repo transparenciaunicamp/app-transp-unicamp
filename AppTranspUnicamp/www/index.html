@@ -23,8 +23,6 @@
         Facebook.start();
     </script>
     <script src='cordova.js'></script>
-    <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
-    <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
 
 </head>
 
@@ -43,11 +41,10 @@
     </style>
     
     <div class="view">
-        <footer>
-            <a href="#tab1" class="icon location" onclick="$.afui.clearHistory();showMap()">Mapa</a>
-            <a href="#tab2" class="icon home" onclick="$.afui.clearHistory()">Timeline</a>
-            <a href="#tab3" class="icon question" onclick="$.afui.clearHistory()">FAQ</a>
-        </footer>
+       
+        <header>
+            <h1>Titulo</h1>
+        </header>
 
         <div class="pages">
 
@@ -70,34 +67,37 @@
 
         </div>
         
+         <footer>
+            <a href="#tab1" class="icon location" onclick="$.afui.clearHistory();showMap()">Mapa</a>
+            <a href="#tab2" class="icon home" onclick="$.afui.clearHistory()">Timeline</a>
+            <a href="#tab3" class="icon question" onclick="$.afui.clearHistory()">FAQ</a>
+        </footer>
+        
     </div>
 
-    
-<script type="text/javascript">
-    
-    var mapShown = false
-    
-    function showMap() {
-        var map = $("<br><div id='map'></div>")
-        if(!mapShown) {
-            map.appendTo('.mapHere')
-//            map.invalidateSize()
-//            map.resize()
-            mapService()
-            mapShown = true
+    <script type="text/javascript">
+        
+        var mapShown = false
+        
+        function showMap() {
+            if(!mapShown) {
+                var map = $("<div class='map'><iframe id='mapFrame' onload='ifFrameLoaded()' height='400px' width='100%' frameBorder='0' src='https://a.tiles.mapbox.com/v4/transparenciaunicamp.057nf8mf/attribution,zoompan,zoomwheel.html?access_token=pk.eyJ1IjoidHJhbnNwYXJlbmNpYXVuaWNhbXAiLCJhIjoiY2lvYWYzdzhsMDNpN3cxa3F0M2czaGtraiJ9.Snu_l3HM0COOW0V39I0LvA'></iframe></div>")
+                map.appendTo('.mapHere')
+                mapShown = true
+            }
         }
-    }
-    
-    function mapService() {
-        L.mapbox.accessToken = 'pk.eyJ1IjoidHJhbnNwYXJlbmNpYXVuaWNhbXAiLCJhIjoiY2lvYWYzdzhsMDNpN3cxa3F0M2czaGtraiJ9.Snu_l3HM0COOW0V39I0LvA';
-        var map = L.mapbox.map('map', 'transparenciaunicamp.057nf8mf')
-//        .setView()
-        map.featureLayer.on('click', function(e) {
-            map.panTo(e.layer.getLatLng());
-        });
-    }
-    
-</script>
+        
+        function ifFrameLoaded() {
+            var height = screen.height * 0.95
+            var frame = $('#mapFrame')
+            if(frame) {
+                frame.height = ""
+                frame.height = height + 'px'
+                console.log(frame.height)
+            }
+        }
+
+    </script>
 
 </body>
 
