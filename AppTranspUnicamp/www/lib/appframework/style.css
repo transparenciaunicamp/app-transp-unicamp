@@ -1,0 +1,16 @@
+@font-face{
+    font-family:Nexa-Bold;
+    src:url(./NexaBold.otf);
+}
+
+.nos-title {
+    font-family: Nexa-Bold
+}
+
+footer {
+    background-image: url(../images/menu/background-04.png)
+}
+
+footer a {
+    background-color: transparent
+}

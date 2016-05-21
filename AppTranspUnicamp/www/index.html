@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" type="text/css" href="lib/appframework/icons.css" />
     <link rel="stylesheet" type="text/css" href="lib/appframework/af.ui.css" />
+    <link rel="stylesheet" type="text/css" href="lib/appframework/style.css" />
 
     <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="lib/fastclick.min.js"></script>
@@ -43,17 +44,17 @@
     <div class="view">
        
         <header>
-            <h1>Titulo</h1>
+            <h1 class="nos-title">Titulo</h1>
         </header>
 
         <div class="pages">
 
             <!--Tab View Pages-->
-            <div class="panel mapHere" data-title="Mapa" id="tab1">
+            <div class="panel mapHere" data-title="MAPA" id="tab1">
                 
             </div>
 
-            <div class="panel" data-title="Timeline" id="tab2" data-selected="true">
+            <div class="panel" data-title="TIMELINE" id="tab2" data-selected="true">
                 <br>
                 <table id="myTable">
                     
@@ -68,6 +69,14 @@
         </div>
         
          <footer>
+<!--
+             <div class="grid">
+                 <div class="col3"><a>TesteA</a></div>
+                 <div class="col3"><a>TesteB</a></div>
+                 <div class="col3"><a>TesteC</a></div>
+             </div>
+-->
+
             <a href="#tab1" class="icon location" onclick="$.afui.clearHistory();showMap()">Mapa</a>
             <a href="#tab2" class="icon home" onclick="$.afui.clearHistory()">Timeline</a>
             <a href="#tab3" class="icon question" onclick="$.afui.clearHistory()">FAQ</a>
