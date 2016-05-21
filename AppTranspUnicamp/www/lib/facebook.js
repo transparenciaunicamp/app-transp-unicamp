@@ -1,14 +1,14 @@
-
+var token = "EAACEdEose0cBAEDz0ZB5e6sptC0GIaYZCR4FkGrtahkoAFVZBurOjarfzmLhSiOsHRppPixlKl5ZAjvqSoUWMg3pqyZA6wKHbuhyKoukrk7YuxZCPzvzTzrCUP7hFZC3haL4pdjScpGExYt1JqbVXcZBhrYbEUt6vhiSLlPVGKJtTUL5UJB0qNmt";
 var Facebook = {
     feed: function() {
         FB.api(
           '/OcupaTudoUnicamp/feed',
           'GET',
-          {"fields":"object_id,message,created_time","access_token":"EAACEdEose0cBAEDz0ZB5e6sptC0GIaYZCR4FkGrtahkoAFVZBurOjarfzmLhSiOsHRppPixlKl5ZAjvqSoUWMg3pqyZA6wKHbuhyKoukrk7YuxZCPzvzTzrCUP7hFZC3haL4pdjScpGExYt1JqbVXcZBhrYbEUt6vhiSLlPVGKJtTUL5UJB0qNmt"},
+          {"fields":"object_id,message,created_time","access_token":token},
           function(response) {
               console.log(response);
               for (var i in response.data){
-                  FeedTable.addRow(response.data[i].message);
+                  Facebook.checkImage(response.data[i].object_id, FeedTable.addRow(response.data[i].message));
               }
           }
         );
@@ -31,7 +31,15 @@ var Facebook = {
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     },
-    image: function() {
-    
+    checkImage: function(objectID, parentCell) {
+        FB.api(
+          '/'+objectID+'/picture',
+          'GET', {"access_token":token},
+          function(response) {
+              if (response.data != null && response.data.url != null && response.data.url != 'https://fbstatic-a.akamaihd.net/rsrc.php/v2/y6/r/_xS7LcbxKS4.gif') {
+                  FeedTable.insertImage(parentCell, response.data.url)
+              }
+          }
+        );
     }
 };
