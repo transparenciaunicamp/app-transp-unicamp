@@ -19,10 +19,14 @@ footer a {
     padding-top: 10%;
 }
 
-header {
+p, h2 {
+    color: black !important;
+}
+
+body, header, head {
     background-color: white !important
 }
 
-page, panel, view {
+pages, panel, view {
     background-color: white !important;
 }

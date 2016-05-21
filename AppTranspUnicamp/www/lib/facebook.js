@@ -1,4 +1,4 @@
-var token = "EAACEdEose0cBAKZAPUfwEY7fGIUiiq243RvokCZB8kbFC4AhGXYqnVgMXKgufRYp4xSaXjIZAQEBMngXUq7aEBqzoIZAVOYkwpahJv3xX4kUZA9zvoGY5ZB0YVjzFpGWjNNGJIewWL951qO8mmNQLzclFnqeAjQZALxvEYEk8ucQ8NZCPX2kVA6W";
+var token = "EAACEdEose0cBAHnIlR5tfTytmtYQU07ZBOo3ZCwtq9erKLZCSEztbWjrYRXNloYcEdVfKpIfakPKoeBQyTcJtwkgnglPUZCuEM1uCfmNsAoyMW89FBwZATaJPZBajamUpIjiZA9M6mNxntiZAouimJNNWNvCzNqzYv9CTvYX93ZChcqt4wNg4RXX7";
 var Facebook = {
     feed: function() {
         FB.api(
