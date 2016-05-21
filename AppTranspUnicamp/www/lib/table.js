@@ -1,22 +1,24 @@
 var currentClass = 'one';
 var nextClass = 'anotherOne';
 
+var uid = 0;
+
 var FeedTable = {
     addRow: function(message) {
-//        var table = document.getElementById("myTable");
-//        var row = table.insertRow(0);
-//        var cell1 = row.insertCell(0);
-//        cell1.innerHTML = message;
-//        return cell1;
         
-        var coisinha = $('<p align="justify" class="'+currentClass+'">'+message+'</p>');
-        coisinha.appendTo('#myTable');
+        var newItem = $('<div class="'+currentClass+'"><div><div style="width: 100%; overflow: hidden;"><div style="width: 50px; float: left;"> <img id="prof'+uid+'"> </div><div style="margin-left: 60px;"><h2>Ocupa Tudo Unicamp 2016</h2></div></div><br><p>'+message+'</p></div></div>');
+        newItem.appendTo('#myTable');
+        
+        var image = document.getElementById("prof"+uid);
+        Facebook.fillWithProfilePicture("OcupaTudoUnicamp",image);
         
         var tempClass = currentClass;
         currentClass = nextClass;
         nextClass = tempClass;
         
-        return coisinha;
+        uid++;
+        
+        return newItem;
     },
     insertImage: function(cell, link) {
         var img = $('<img src="'+link+'" width="100%">');

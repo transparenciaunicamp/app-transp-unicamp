@@ -41,5 +41,15 @@ var Facebook = {
               }
           }
         );
+    },
+    fillWithProfilePicture: function(user, img) {
+        FB.api(
+          '/'+user+'/picture',
+          'GET',
+          {},
+          function(response) {
+              img.src = response.data.url;
+          }
+        );
     }
 };
