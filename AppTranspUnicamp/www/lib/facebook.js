@@ -1,4 +1,4 @@
-var token = "EAACEdEose0cBAPn6eEanWtAE1Yc7wAzFmgBHmxZAKDM7tuLDTgKg35PUTrISvBTYmTZA2HL9UdcpKsZAZCmxceyOSscWrpWRhGJwpHp7kyeGRRoRfdBWNEU74YohspFKxx1KUh8fDMoEZAX6aFcQciZCtpWdBB1cNqtXQSx0Qt9RcwZBWWXpxZBY";
+var token = "EAACEdEose0cBAKZAPUfwEY7fGIUiiq243RvokCZB8kbFC4AhGXYqnVgMXKgufRYp4xSaXjIZAQEBMngXUq7aEBqzoIZAVOYkwpahJv3xX4kUZA9zvoGY5ZB0YVjzFpGWjNNGJIewWL951qO8mmNQLzclFnqeAjQZALxvEYEk8ucQ8NZCPX2kVA6W";
 var Facebook = {
     feed: function() {
         FB.api(
@@ -39,6 +39,16 @@ var Facebook = {
               if (response.data != null && response.data.url != null && response.data.url != 'https://fbstatic-a.akamaihd.net/rsrc.php/v2/y6/r/_xS7LcbxKS4.gif') {
                   FeedTable.insertImage(parentCell, response.data.url)
               }
+          }
+        );
+    },
+    fillWithProfilePicture: function(user, img) {
+        FB.api(
+          '/'+user+'/picture',
+          'GET',
+          {},
+          function(response) {
+              img.src = response.data.url;
           }
         );
     }
