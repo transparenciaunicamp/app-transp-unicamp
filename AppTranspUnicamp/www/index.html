@@ -27,7 +27,7 @@
 
 </head>
 
-<body>
+<body bgcolor="white !important">
 
     <div id="splashscreen" class='ui-loader heavy'>
         Transparência Unicamp
@@ -44,9 +44,10 @@
         .one {background-color: #FFFFFF}
         .anotherOne {background-color: #9D9D9C}
     </style>
-    <div class="view">
+    <div class="view" onload="distance()">
        
-        <header>
+        <header id="header">
+            <img src="lib/images/logo-03.png" height="80%" style="float:left; margin-left:8%">
             <h1 class="nos-title">Titulo</h1>
         </header>
 
@@ -71,17 +72,9 @@
         </div>
         
          <footer>
-<!--
-             <div class="grid">
-                 <div class="col3"><a>TesteA</a></div>
-                 <div class="col3"><a>TesteB</a></div>
-                 <div class="col3"><a>TesteC</a></div>
-             </div>
--->
-
-            <a href="#tab1" class="icon location" onclick="$.afui.clearHistory();showMap()">Mapa</a>
-            <a href="#tab2" class="icon home" onclick="$.afui.clearHistory()">Timeline</a>
-            <a href="#tab3" class="icon question" onclick="$.afui.clearHistory()">FAQ</a>
+            <a href="#tab1" onclick="$.afui.clearHistory();showMap();"><img id="map_icon" src="lib/images/menu/mapa-vazio-03.png" height="80%"></a>
+            <a href="#tab2" onclick="$.afui.clearHistory()"><img src="lib/images/menu/timeline-vazio-03.png" height="80%"></a>
+            <a href="#tab3" onclick="$.afui.clearHistory()"><img src="lib/images/menu/faq-vazio-03.png" height="80%"></a>
         </footer>
         
     </div>
@@ -107,6 +100,17 @@
                 console.log(frame.height)
             }
         }
+        
+        
+        function distance() {
+            var scrollTop     = $(window).scrollTop(),
+                elementOffset = $('.view').offset().top,
+                distance      = (elementOffset - scrollTop);
+            console.log(scrollTop)
+            console.log(elementOffset)
+            console.log(distance)
+        }
+        
 
     </script>
 

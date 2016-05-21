@@ -4,13 +4,25 @@
 }
 
 .nos-title {
-    font-family: Nexa-Bold
+    font-family: Nexa-Bold;
+    color: #c6c6c6 !important
 }
 
 footer {
-    background-image: url(../images/menu/background-04.png)
+    background-color: transparent !important;
+    background-image: url(../images/menu/background-04.png) !important;
+    background-position: center top!important;
+    background-size: 100% !important;
 }
 
 footer a {
-    background-color: transparent
+    padding-top: 10%;
+}
+
+header {
+    background-color: white !important
+}
+
+page, panel, view {
+    background-color: white !important;
 }
