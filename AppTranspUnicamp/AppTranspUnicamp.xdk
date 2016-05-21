@@ -2,21 +2,34 @@
   "project": {
     "projectSettingsVersion": "3.0.0",
     "creationData": {
-      "type": "App Designer",
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
-      "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
-      "projectGuid": "49ad9ab8-0c8a-4ba3-9471-b122203a49ce",
-      "lastModifiedDate": 1463821242143,
-      "creationDate": 1463821231444
+      "src": "jsapp/template-tab-view-js/sample.zip",
+      "projectGuid": "8bac9323-c3b3-40f6-9d54-4246de1357be",
+      "lastModifiedDate": 1463824570202,
+      "creationDate": 1463824527375
     },
-    "XDK-app-designer": "true",
     "sourceDirectory": "www",
-    "startFile": "index.html",
-    "projectFiles": {},
-    "projectDirectories": {},
-    "libraries": [],
-    "serviceMethods": [],
     "cordovaPluginsDirectory": "plugins",
+    "startFile": "index.html",
+    "projectFiles": {
+      "xdk-publish-meta-data.json": {
+        "settings": {
+          "project": {
+            "XDK-not-deployed": "True"
+          }
+        }
+      }
+    },
+    "projectDirectories": {
+      "www/xdk": {
+        "settings": {
+          "project": {
+            "XDK-generated": "true"
+          }
+        }
+      }
+    },
+    "libraries": [],
     "cordovaPlugins": [
       {
         "id": "cordova-plugin-statusbar",
@@ -71,6 +84,7 @@
         "checksum": "452a4659"
       }
     ],
+    "serviceMethods": [],
     "buildConfigurations": {
       "Android": {
         "platform_": "android",
@@ -84,7 +98,7 @@
         },
         "isActive_": true,
         "appName_": "AppTranspUnicamp",
-        "appID_": "xdk.intel.blank.ad.template.crosswalk",
+        "appID_": "not.yet.specified",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
@@ -107,11 +121,10 @@
         "excludedLibraries_": "",
         "certificateId_": "",
         "cordovaCLIVersion_": "5.4.1",
-        "crosswalkVersion_": "16",
         "appVersion_": "0.0.1",
-        "appAuthor_": "Intel XDK",
-        "appDescription_": "Template to develop a Cordova mobile web app using the App Designer UI editor.",
-        "appVersionCode_": "1"
+        "appVersionCode_": "1",
+        "crosswalkVersion_": "16",
+        "appAuthor_": "Intel XDK"
       },
       "iOS": {
         "platform_": "ios",
@@ -123,9 +136,9 @@
         },
         "isActive_": true,
         "appName_": "AppTranspUnicamp",
-        "appID_": "xdk.intel.blank.ad.template",
+        "appID_": "not.yet.specified",
         "appAccess_": {
-          "mode": "legacy",
+          "mode": "whitelist",
           "network": [
             "*"
           ],
@@ -139,7 +152,8 @@
             "itms:*",
             "itms-apps:*"
           ],
-          "navigation": []
+          "navigation": [],
+          "properties": {}
         },
         "icons_": [],
         "splashes_": [],
@@ -148,29 +162,33 @@
         "certificateId_": "",
         "iosProvs_": [],
         "cordovaCLIVersion_": "5.4.1",
-        "crosswalkVersion_": "16",
         "appVersion_": "0.0.1",
         "appAuthor_": "Intel XDK",
-        "appDescription_": "Template to develop a Cordova mobile web app using the App Designer UI editor."
+        "crosswalkVersion_": "16"
       },
       "Windows8": {
         "platform_": "windows8",
         "runtime_": "Cordova 3.x",
         "name_": "Windows8",
-        "preferences_": {
-          "windows-publisher-display-name": "",
-          "windows-publisher-id": ""
-        },
+        "preferences_": {},
         "isActive_": true,
         "appName_": "AppTranspUnicamp",
-        "appID_": "xdk.intel.blank.ad.template",
+        "appID_": "not.yet.specified",
         "appAccess_": {
-          "mode": "legacy",
+          "mode": "whitelist",
           "network": [
             "*"
           ],
-          "intents": [],
-          "navigation": []
+          "intents": [
+            "http://*/*",
+            "https://*/*",
+            "tel:*",
+            "sms:*",
+            "mailto:*",
+            "geo:*"
+          ],
+          "navigation": [],
+          "properties": {}
         },
         "icons_": [],
         "splashes_": [],
@@ -178,10 +196,9 @@
         "excludedLibraries_": "",
         "certificateId_": "",
         "cordovaCLIVersion_": "5.4.1",
-        "crosswalkVersion_": "16",
-        "appVersion_": "0.0.0.1",
+        "appVersion_": "0.0.1",
         "appAuthor_": "Intel XDK",
-        "appDescription_": "Template to develop a Cordova mobile web app using the App Designer UI editor."
+        "crosswalkVersion_": "16"
       },
       "WebApp": {
         "platform_": "webapp",
@@ -194,7 +211,8 @@
         "appAccess_": {
           "mode": "legacy",
           "network": [
-            "*"
+            "http://debug-software.intel.com/*",
+            "https://debug-software.intel.com/*"
           ],
           "intents": [],
           "navigation": []
@@ -204,32 +222,8 @@
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "certificateId_": "",
-        "appAuthor_": "Intel XDK",
-        "appVersion_": "0.0.1"
-      },
-      "Chrome": {
-        "platform_": "chromeos",
-        "runtime_": "W3C on Chrome OS",
-        "name_": "Chrome",
-        "preferences_": {},
-        "isActive_": false,
-        "appName_": "AppTranspUnicamp",
-        "appID_": "not.yet.specified",
-        "appAccess_": {
-          "mode": "legacy",
-          "network": [
-            "*"
-          ],
-          "intents": [],
-          "navigation": []
-        },
-        "icons_": [],
-        "splashes_": [],
-        "addlPermissions_": "",
-        "excludedLibraries_": "",
-        "certificateId_": "",
-        "appAuthor_": "Intel XDK",
-        "appVersion_": "0.0.1"
+        "appVersion_": "0.0.1",
+        "appAuthor_": "Intel XDK"
       },
       "Firefox": {
         "platform_": "firefoxos",
@@ -242,7 +236,8 @@
         "appAccess_": {
           "mode": "legacy",
           "network": [
-            "*"
+            "http://debug-software.intel.com/*",
+            "https://debug-software.intel.com/*"
           ],
           "intents": [],
           "navigation": []
@@ -252,8 +247,33 @@
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "certificateId_": "",
-        "appAuthor_": "Intel XDK",
-        "appVersion_": "0.0.1"
+        "appVersion_": "0.0.1",
+        "appAuthor_": "Intel XDK"
+      },
+      "Chrome": {
+        "platform_": "chromeos",
+        "runtime_": "W3C on Chrome OS",
+        "name_": "Chrome",
+        "preferences_": {},
+        "isActive_": false,
+        "appName_": "AppTranspUnicamp",
+        "appID_": "not.yet.specified",
+        "appAccess_": {
+          "mode": "legacy",
+          "network": [
+            "http://debug-software.intel.com/*",
+            "https://debug-software.intel.com/*"
+          ],
+          "intents": [],
+          "navigation": []
+        },
+        "icons_": [],
+        "splashes_": [],
+        "addlPermissions_": "",
+        "excludedLibraries_": "",
+        "certificateId_": "",
+        "appVersion_": "0.0.1",
+        "appAuthor_": "Intel XDK"
       },
       "Facebook": {
         "platform_": "facebook",
@@ -266,7 +286,8 @@
         "appAccess_": {
           "mode": "legacy",
           "network": [
-            "*"
+            "http://debug-software.intel.com/*",
+            "https://debug-software.intel.com/*"
           ],
           "intents": [],
           "navigation": []
@@ -276,8 +297,8 @@
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "certificateId_": "",
-        "appAuthor_": "Intel XDK",
-        "appVersion_": "0.0.1"
+        "appVersion_": "0.0.1",
+        "appAuthor_": "Intel XDK"
       },
       "WP81": {
         "platform_": "wp81",
@@ -290,7 +311,8 @@
         "appAccess_": {
           "mode": "legacy",
           "network": [
-            "*"
+            "http://debug-software.intel.com/*",
+            "https://debug-software.intel.com/*"
           ],
           "intents": [],
           "navigation": []
