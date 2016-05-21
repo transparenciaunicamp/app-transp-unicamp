@@ -38,7 +38,7 @@
     </div>
 
     <style>
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #map { position:absolute; top:0; left:0; width:100%; }
     </style>
     <style>
         .one {background-color: #FFFFFF; padding: 15px 15px; margin: 0px 0px}
@@ -54,7 +54,7 @@
         <div class="pages">
 
             <!--Tab View Pages-->
-            <div class="panel mapHere" data-title="MAPA" id="tab1">
+            <div class="panel mapHere" data-title="MAPA" id="tab1" style="padding: 0px 0px">
                 
             </div>
 
@@ -84,19 +84,14 @@
         
         function showMap() {
             if(!mapShown) {
-                var map = $("<div class='map'><iframe id='mapFrame' onload='ifFrameLoaded()' height='400px' width='100%' frameBorder='0' src='https://a.tiles.mapbox.com/v4/transparenciaunicamp.057nf8mf/attribution,zoompan,zoomwheel.html?access_token=pk.eyJ1IjoidHJhbnNwYXJlbmNpYXVuaWNhbXAiLCJhIjoiY2lvYWYzdzhsMDNpN3cxa3F0M2czaGtraiJ9.Snu_l3HM0COOW0V39I0LvA'></iframe></div>")
+                var map = $("<div class='map'><iframe id='mapFrame' onload='ifFrameLoaded()' height='100%' width='100%' frameBorder='0' src='https://a.tiles.mapbox.com/v4/transparenciaunicamp.057nf8mf/attribution,zoompan,zoomwheel.html?access_token=pk.eyJ1IjoidHJhbnNwYXJlbmNpYXVuaWNhbXAiLCJhIjoiY2lvYWYzdzhsMDNpN3cxa3F0M2czaGtraiJ9.Snu_l3HM0COOW0V39I0LvA'></iframe></div>")
                 map.appendTo('.mapHere')
                 mapShown = true
             }
         }
         
         function ifFrameLoaded() {
-            var height = screen.height * 0.95
-            var frame = $('#mapFrame')
-            if(frame) {
-                frame.height = ""
-                frame.height = height + 'px'
-            }
+            $('#mapFrame').css('height', $(window).height()+'px');
         }
         
         
