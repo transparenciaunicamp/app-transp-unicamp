@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-tab-view-js/sample.zip",
       "projectGuid": "8bac9323-c3b3-40f6-9d54-4246de1357be",
-      "lastModifiedDate": 1463872721472,
+      "lastModifiedDate": 1463878951893,
       "creationDate": 1463824527375
     },
     "sourceDirectory": "www",
@@ -82,6 +82,28 @@
         "name": "Splashscreen",
         "description": "Cordova Splashscreen Plugin",
         "checksum": "452a4659"
+      },
+      {
+        "id": "org.apache.cordova.plugin.ActivityIndicator",
+        "name": "Activity Indicator",
+        "version": "1.0.0",
+        "originType": "repo",
+        "origin": "https://github.com/Initsogar/cordova-activityindicator",
+        "gitref": "",
+        "subdir": ".",
+        "paramvals": {},
+        "sourceLocation": "plugins/org.apache.cordova.plugin.ActivityIndicator",
+        "selectedState": "Included",
+        "checksum": "6a419c77",
+        "dependsOn": [],
+        "topLevel": true,
+        "cordovaVersion": ">=3.0.0",
+        "author": "Rafael Agostini",
+        "permissions": {},
+        "description": "Activity Indicator plugin for Cordova 3.X that allows you to show a loading spinner in your Cordova's app.",
+        "data": {},
+        "dependedBy": [],
+        "custom": "true"
       }
     ],
     "serviceMethods": [],
