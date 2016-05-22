@@ -10,6 +10,7 @@ var Facebook = {
               for (var i in response.data){
                   Facebook.checkImage(response.data[i].object_id, FeedTable.addRow(response.data[i].message));
               }
+              ActivityIndicator.hide();
           }
         );
     },
