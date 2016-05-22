@@ -27,7 +27,7 @@
 
 </head>
 
-<body bgcolor="white !important">
+<body bgcolor="white !important" onload="fixMargin()">
 
     <div id="splashscreen" class='ui-loader heavy'>
         Transparência Unicamp
@@ -46,8 +46,8 @@
     </style>
     <div class="view">
        
-        <header id="header">
-            <img src="lib/images/logo-03.png" height="80%" style="float:left; margin-left:8%">
+        <header>
+            <img id="logo" src="lib/images/logo-03.png" height="80%" style="float:left; margin-left:8%">
             <h1 id="h1" class="nos-title">Titulo</h1>
         </header>
 
@@ -73,7 +73,7 @@
          <footer>
             <a href="#tab1" onclick="$.afui.clearHistory();showMap();"><img id="map_icon" src="lib/images/menu/mapa-vazio-03.png" height="80%"></a>
             <a href="#tab2" onclick="$.afui.clearHistory()"><img src="lib/images/menu/timeline-vazio-03.png" height="80%"></a>
-            <a href="#tab3" onclick="$.afui.clearHistory(); testDistance()"><img src="lib/images/menu/faq-vazio-03.png" height="80%"></a>
+            <a href="#tab3" onclick="$.afui.clearHistory();"><img src="lib/images/menu/faq-vazio-03.png" height="80%"></a>
         </footer>
         
     </div>
@@ -97,7 +97,8 @@
         }
         
         
-        function testDistance() {
+        
+        function fixMargin() {
             var scrollTop     = $(window).scrollTop(),
                 elementOffset = $('.pages').offset().top,
                 distance      = (elementOffset - scrollTop);
@@ -106,7 +107,15 @@
             var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
             var fontSize = parseFloat(style); 
             
+            
             var margin = ( distance - (fontSize + 1) ) / 2
+            
+            console.log(margin)
+            
+            
+            $('#logo').css('margin-bottom', margin+'px');
+            
+            
         }
         
 
