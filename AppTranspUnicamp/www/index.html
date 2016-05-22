@@ -44,11 +44,11 @@
         .one {background-color: #FFFFFF; padding: 15px 15px; margin: 0px 0px}
         .anotherOne {background-color: #F0F0F0; padding: 15px 15px; margin: 0px 0px}
     </style>
-    <div class="view" onload="distance()">
+    <div class="view">
        
         <header id="header">
             <img src="lib/images/logo-03.png" height="80%" style="float:left; margin-left:8%">
-            <h1 class="nos-title">Titulo</h1>
+            <h1 id="h1" class="nos-title">Titulo</h1>
         </header>
 
         <div class="pages">
@@ -73,7 +73,7 @@
          <footer>
             <a href="#tab1" onclick="$.afui.clearHistory();showMap();"><img id="map_icon" src="lib/images/menu/mapa-vazio-03.png" height="80%"></a>
             <a href="#tab2" onclick="$.afui.clearHistory()"><img src="lib/images/menu/timeline-vazio-03.png" height="80%"></a>
-            <a href="#tab3" onclick="$.afui.clearHistory()"><img src="lib/images/menu/faq-vazio-03.png" height="80%"></a>
+            <a href="#tab3" onclick="$.afui.clearHistory(); testDistance()"><img src="lib/images/menu/faq-vazio-03.png" height="80%"></a>
         </footer>
         
     </div>
@@ -97,13 +97,16 @@
         }
         
         
-        function distance() {
+        function testDistance() {
             var scrollTop     = $(window).scrollTop(),
-                elementOffset = $('.view').offset().top,
+                elementOffset = $('.pages').offset().top,
                 distance      = (elementOffset - scrollTop);
-            console.log(scrollTop)
-            console.log(elementOffset)
-            console.log(distance)
+        
+            var el = document.getElementById("h1")
+            var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
+            var fontSize = parseFloat(style); 
+            
+            var margin = ( distance - (fontSize + 1) ) / 2
         }
         
 
