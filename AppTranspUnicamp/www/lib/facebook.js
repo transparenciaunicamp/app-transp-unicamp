@@ -1,4 +1,4 @@
-var token = "EAACEdEose0cBAHnIlR5tfTytmtYQU07ZBOo3ZCwtq9erKLZCSEztbWjrYRXNloYcEdVfKpIfakPKoeBQyTcJtwkgnglPUZCuEM1uCfmNsAoyMW89FBwZATaJPZBajamUpIjiZA9M6mNxntiZAouimJNNWNvCzNqzYv9CTvYX93ZChcqt4wNg4RXX7";
+var token = "1065023200223770|30f801dea119b03c6b5e530205c4f9fd";
 var Facebook = {
     feed: function() {
         FB.api(
