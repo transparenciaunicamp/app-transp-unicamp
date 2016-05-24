@@ -31,7 +31,7 @@ var pages = [
 ]
 
 var Facebook = {
-    feed: function(page) {
+    feed: function(page, done) {
         FB.api(
             '/'+page+'/feed',
             'GET',
@@ -57,6 +57,7 @@ var Facebook = {
                     var row = FeedTable.createRow(message, image, page);
                     Feed.addPost(row,response.data[i].created_time)
                 }
+                done();
             }
         );
     },
@@ -67,10 +68,15 @@ var Facebook = {
                 xfbml      : true,
             version    : 'v2.6'
             });
+            var totalDone = 0;
             for (var item in pages) {
-                Facebook.feed(pages[item]);
+                Facebook.feed(pages[item], function(){
+                    totalDone++;
+                    if (totalDone == pages.length) {
+                        Feed.showAll(document.getElementById("myTable"));
+                    }
+                });
             }
-            Feed.showAll();
         };
 
         (function(d, s, id){
