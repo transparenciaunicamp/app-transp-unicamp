@@ -18,7 +18,8 @@
     <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="lib/fastclick.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="lib/facebook.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/table.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/feed.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/table.js"></script>
     <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>  
     <script>
         Facebook.start();
@@ -79,12 +80,10 @@
     </div>
 
     <script type="text/javascript">
-        ActivityIndicator.show();
         var mapShown = false;
         
         function showMap() {
             if(!mapShown) {
-                ActivityIndicator.show();
                 var map = $("<div class='map'><iframe id='mapFrame' onload='ifFrameLoaded()' height='100%' width='100%' frameBorder='0' src='https://a.tiles.mapbox.com/v4/transparenciaunicamp.057nf8mf/attribution,zoompan,zoomwheel.html?access_token=pk.eyJ1IjoidHJhbnNwYXJlbmNpYXVuaWNhbXAiLCJhIjoiY2lvYWYzdzhsMDNpN3cxa3F0M2czaGtraiJ9.Snu_l3HM0COOW0V39I0LvA'></iframe></div>")
                 map.appendTo('.mapHere')
                 mapShown = true
@@ -93,7 +92,6 @@
         
         function ifFrameLoaded() {
             $('#mapFrame').css('height', $(window).height()+'px');
-            ActivityIndicator.hide();
         }
         
         
