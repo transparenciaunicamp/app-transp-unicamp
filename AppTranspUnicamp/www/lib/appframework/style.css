@@ -15,10 +15,13 @@ footer {
     background-size: 100% !important;
 }
 
-footer a {
-    padding-top: 10%;
+footer a{
+    margin-top: 6px !important
 }
 
+footer {
+    margin: 0 0
+}
 
 p, h2 {
     color: black !important;
@@ -31,3 +34,5 @@ body, header, head {
 pages, panel, view {
     background-color: white !important;
 }
+
+/*header*/
