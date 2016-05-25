@@ -82,13 +82,13 @@
                 </script>
                 <div class="w3-row">
                     <div class="w3-col s4 m4 l4 w3-container w3-center">
-                        <a onclick="changeTo('map-page');changePage('map-page')"><img class='icon' id="map" src='images/menu/mapa-vazio-03.png'></a>
+                        <a onclick="changeImage('mapa');changeCurrentImage('mapa');changeTo('map-page');changePage('map-page')"><img class='icon' id="mapa" src='images/menu/mapa-vazio-03.png'></a>
                     </div>
-                    <div class="w3-col s4 m4 l4 w3-center" id="timeline">
-                        <a onclick="changeTo('timeline-page');changePage('timeline-page')"><img class="icon_selected" src="images/menu/timeline-cheio-03.png"></a>
+                    <div class="w3-col s4 m4 l4 w3-center">
+                        <a onclick="changeImage('timeline');changeCurrentImage('timeline');changeTo('timeline-page');changePage('timeline-page')"><img id="timeline" class="icon" src="images/menu/timeline-cheio-03.png"></a>
                     </div>
-                    <div class="w3-col s4 m4 l4 w3-center" id="faq">
-                        <a onclick="changeTo('faq-page');changePage('faq-page')"> <img class="icon" src="images/menu/faq-vazio-03.png"></a>
+                    <div class="w3-col s4 m4 l4 w3-center">
+                        <a onclick="changeImage('faq');changeCurrentImage('faq');changeTo('faq-page');changePage('faq-page')"> <img class="icon" id="faq" src="images/menu/faq-vazio-03.png"></a>
                     </div>
                 </div>
             </div>
@@ -98,10 +98,10 @@
                 $('.icon').css('height', newHeight)
                 var newMargin = (footerHeight - newHeight) / 2
                 $('.icon').css('margin-top', newMargin)
-                var selectedIcon = footerHeight * 0.55
-                $('.icon_selected').css('height', selectedIcon)
-                var newMarginSelected = (footerHeight - selectedIcon) / 2
-                $('.icon_selected').css('margin-top', newMarginSelected)
+//                var selectedIcon = footerHeight * 0.55
+//                $('.icon_selected').css('height', selectedIcon)
+//                var newMarginSelected = (footerHeight - selectedIcon) / 2
+//                $('.icon_selected').css('margin-top', newMarginSelected)
             </script>
         </div>
     </footer>
@@ -118,10 +118,15 @@
             currentPage = page
         }
         function changeImage(toIcon) {
-            $('#' + currentIcon).addClass('icon');
-            $('#' + currentIcon).removeClass('icon_selected');
-            $('#' + toIcon).removeClass('icon')
-            $('#' + toIcon).addClass('icon_selected')
+//            $('#' + currentIcon).addClass('icon');
+//            $('#' + currentIcon).removeClass('icon_selected');
+//            $('#' + toIcon).removeClass('icon')
+//            $('#' + toIcon).addClass('icon_selected')
+            $('#' + toIcon).attr('src',"images/menu/" + toIcon + "-cheio-03.png")
+            $('#' + currentIcon).attr('src',"images/menu/" + currentIcon + "-vazio-03.png")
+        }
+        function changeCurrentImage(img) {
+            currentIcon = img
         }
     </script>
 
