@@ -23,6 +23,15 @@
     <script src="js/app.js"></script>           <!-- recommended location of your JavaScript code relative to other JS files -->
     <script src="js/jquery-1.12.4.min.js"></script>
     <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see README for details -->
+    <script type="text/javascript" charset="utf-8" src="js/facebook.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/feed.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/table.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/faq.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/map.js"></script>
+    <script>
+        Facebook.start();
+        loadFaq();
+    </script>
     
 </head>
 
@@ -62,15 +71,15 @@
     </header>
 
     <div class="w3-container" id="timeline-page">
-        <p>TIMELINE</p>
+        <div id="myTable"></div>
     </div>
     
     <div class="w3-container w3-hide" id="map-page">
-        <p>MAP</p>
+        <div id="myMap"></div>
     </div>
     
     <div class="w3-container w3-hide" id="faq-page">
-        <p>FAQ</p>
+        <div class="grid" id="FAQ"></div>
     </div>
     
     <footer>
@@ -82,7 +91,7 @@
                 </script>
                 <div class="w3-row">
                     <div class="w3-col s4 m4 l4 w3-container w3-center">
-                        <a onclick="changeTo('map-page');changePage('map-page')"><img class='icon' id="map" src='images/menu/mapa-vazio-03.png'></a>
+                        <a onclick="changeTo('map-page');changePage('map-page');showMap()"><img class='icon' id="map" src='images/menu/mapa-vazio-03.png'></a>
                     </div>
                     <div class="w3-col s4 m4 l4 w3-center" id="timeline">
                         <a onclick="changeTo('timeline-page');changePage('timeline-page')"><img class="icon_selected" src="images/menu/timeline-cheio-03.png"></a>

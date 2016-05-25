@@ -21,3 +21,22 @@
     height: 1px;
     background-color: #383838
 }
+ 
+.whiteBack {
+    background-color: #FFFFFF; 
+    padding: 15px 15px; 
+    margin: 0px 0px
+}
+
+.greyBack {
+    background-color: #F0F0F0;
+    padding: 15px 15px;
+    margin: 0px 0px
+}
+
+.map {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+}
