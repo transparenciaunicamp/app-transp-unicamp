@@ -20,9 +20,11 @@
     <script type="text/javascript" charset="utf-8" src="lib/facebook.js"></script>
     <script type="text/javascript" charset="utf-8" src="lib/feed.js"></script>
     <script type="text/javascript" charset="utf-8" src="lib/table.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/FAQ.js"></script>
     <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>  
     <script>
         Facebook.start();
+        loadFaq();
     </script>
     <script src='cordova.js'></script>
 
@@ -65,8 +67,8 @@
             </div>
 
             <div class="panel" data-title="FAQ" id="tab3">
-                <br>
-                This is view for third Tab
+                <div class="grid" id="FAQ">
+                </div>
             </div>
 
         </div>
