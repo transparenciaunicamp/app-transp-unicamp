@@ -54,10 +54,12 @@ var Facebook = {
                         message = "";
                     }
                     if (message == null) message = "";
-                    var row = FeedTable.createRow(message, image, page);
-                    Feed.addPost(row,response.data[i].created_time)
+                    FeedTable.createRow(message, image, page, function(row) {
+                        Feed.addPost(row,response.data[i].created_time)
+                        done();
+                    });
+                    
                 }
-                done();
             }
         );
     },
@@ -87,23 +89,23 @@ var Facebook = {
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     },
-    fillWithProfilePicture: function(page, img) {
+    getProfilePicture: function(page, done) {
         FB.api(
             '/'+page+'/picture',
             'GET',
             {},
             function(response) {
-              img.src = response.data.url;
+              done(response.data.url);
             }
         );
     },
-    fillWithName: function(page, field) {
+    getName: function(page, done) {
         FB.api(
             '/'+page+'/',
             'GET',
             {"access_token":token},
             function(response) {
-                field.innerHTML = response.name;
+                done(response.name);
             }
         );
     }
