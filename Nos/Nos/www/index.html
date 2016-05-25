@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+<head>
+    <title>Nós</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        /* following two viewport lines are equivalent to the meta viewport statement above, needed for Windows */
+        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+    </style>
+    
+    <link href="css/w3.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="cordova.js"></script>          <!-- phantom library, needed for Cordova api calls, added during build -->
+    <script src="js/app.js"></script>           <!-- recommended location of your JavaScript code relative to other JS files -->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see README for details -->
+    
+</head>
+
+<body>
+    
+    <header>
+        <div class="w3-top">
+            <div class="w3-container nos-header">
+                <script type="text/javascript">
+                    var footerHeight = $(window).height() * 0.09
+                    $('.nos-header').css('height',footerHeight)
+                </script>
+                <div class="w3-row">
+                    <div class="w3-col s4 m4 l4 w3-container w3-center">
+                        <img src="images/logo-03.png" class="logo" width="70%">
+                    </div>
+                    <div class="w3-col s4 m4 l4 w3-container w3-center">
+                        <p class="title">TIMELINE</p>
+                    </div>
+                    <div class="w3-col s4 m4 l4 w3-container w3-center">
+                    </div>
+                </div>
+            </div>
+            <div class="horizontal-rule"></div>
+            <script>
+                var headerHeight = parseInt($('.nos-header').css('height'))
+                var newHeight = headerHeight * 0.8
+                $('.logo').css('height', newHeight)
+                var newMargin = (headerHeight - newHeight) / 2
+                $('.logo').css('margin-top', newMargin)
+                $('.title').css('height', newHeight)
+                $('.title').css('padding-top', newMargin)
+            </script>
+        </div>
+        <br>
+        <br>
+    </header>
+
+    <div class="w3-container" id="timeline-page">
+        <p>TIMELINE</p>
+    </div>
+    
+    <div class="w3-container w3-hide" id="map-page">
+        <p>MAP</p>
+    </div>
+    
+    <div class="w3-container w3-hide" id="faq-page">
+        <p>FAQ</p>
+    </div>
+    
+    <footer>
+        <div class="w3-bottom">
+            <div class="w3-container nos-footer">
+                <script type="text/javascript">
+                    var footerHeight = $(window).height() * 0.18
+                    $('.nos-footer').css('height',footerHeight)
+                </script>
+                <div class="w3-row">
+                    <div class="w3-col s4 m4 l4 w3-container w3-center">
+                        <a onclick="changeTo('map-page');changePage('map-page')"><img class='icon' id="map" src='images/menu/mapa-vazio-03.png'></a>
+                    </div>
+                    <div class="w3-col s4 m4 l4 w3-center" id="timeline">
+                        <a onclick="changeTo('timeline-page');changePage('timeline-page')"><img class="icon_selected" src="images/menu/timeline-cheio-03.png"></a>
+                    </div>
+                    <div class="w3-col s4 m4 l4 w3-center" id="faq">
+                        <a onclick="changeTo('faq-page');changePage('faq-page')"> <img class="icon" src="images/menu/faq-vazio-03.png"></a>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var footerHeight = parseInt($('.nos-footer').css('height'))
+                var newHeight = footerHeight * 0.4
+                $('.icon').css('height', newHeight)
+                var newMargin = (footerHeight - newHeight) / 2
+                $('.icon').css('margin-top', newMargin)
+                var selectedIcon = footerHeight * 0.55
+                $('.icon_selected').css('height', selectedIcon)
+                var newMarginSelected = (footerHeight - selectedIcon) / 2
+                $('.icon_selected').css('margin-top', newMarginSelected)
+            </script>
+        </div>
+    </footer>
+    
+    
+    <script>       
+        var currentPage = 'timeline-page'
+        var currentIcon = 'timeline'
+        function changeTo(toId) {
+            $('#' + currentPage).addClass('w3-hide');
+            $('#' + toId).removeClass('w3-hide')
+        }
+        function changePage(page) {
+            currentPage = page
+        }
+        function changeImage(toIcon) {
+            $('#' + currentIcon).addClass('icon');
+            $('#' + currentIcon).removeClass('icon_selected');
+            $('#' + toIcon).removeClass('icon')
+            $('#' + toIcon).addClass('icon_selected')
+        }
+    </script>
+
+</body>
+
+
+    
+</html>

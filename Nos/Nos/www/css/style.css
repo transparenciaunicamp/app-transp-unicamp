@@ -1,0 +1,23 @@
+@font-face {
+    font-family: Nexa-Bold;
+    src: url(../font/NexaBold.otf)
+}
+
+.nos-footer {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent, transparent, transparent, transparent, transparent), linear-gradient(to right, #E00036, #E65B20) !important;
+}
+
+.nos-header {
+    font-family: Nexa-Bold;
+    color: #383838;
+    vertical-align: middle !important
+}
+
+.horizontal-rule{
+    position: absolute;
+    width: 600%;
+    left: 50%;
+    margin-left: -300%;
+    height: 1px;
+    background-color: #383838
+}
