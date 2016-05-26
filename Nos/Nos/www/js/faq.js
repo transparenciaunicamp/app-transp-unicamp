@@ -6,7 +6,7 @@ var loadFaq = function() {
             var split = txt[i].split("#");
             var question = split[0];
             if(question.indexOf("}") > -1){
-                var newCategory = $('<div class="category"><div class="header"><span>Categoria:'+question.split("}")[0]+'</span></div>');
+                var newCategory = $('<br><div class="category"><div class="header"><span>Categoria:'+question.split("}")[0]+'</span></div>');
                 newCategory.appendTo('#FAQ');
                 question = question.split("}")[1];
             }

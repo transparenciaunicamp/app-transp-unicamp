@@ -32,13 +32,12 @@
         Facebook.start();
         loadFaq();
     </script>
-    
 </head>
 
 <body>
     
     <header>
-        <div class="w3-top">
+        <div class="w3-top" style="background-color:white">
             <div class="w3-container nos-header">
                 <script type="text/javascript">
                     var footerHeight = $(window).height() * 0.09
@@ -66,21 +65,31 @@
                 $('.title').css('padding-top', newMargin)
             </script>
         </div>
-        <br>
-        <br>
     </header>
+    
+    <br>
+    <br>
+    <br>
 
     <div class="w3-container" id="timeline-page">
         <div id="myTable"></div>
     </div>
     
     <div class="w3-container w3-hide" id="map-page">
-        <div id="myMap"></div>
+<!--        <div class="w3-container" id="myMap"></div>-->
+        <div class='map'><iframe id='mapFrame' onload='ifFrameLoaded()' height='100%' width='100%' frameBorder='0' src='https://a.tiles.mapbox.com/v4/transparenciaunicamp.057nf8mf/attribution,zoompan,zoomwheel.html?access_token=pk.eyJ1IjoidHJhbnNwYXJlbmNpYXVuaWNhbXAiLCJhIjoiY2lvYWYzdzhsMDNpN3cxa3F0M2czaGtraiJ9.Snu_l3HM0COOW0V39I0LvA'></iframe></div>
     </div>
     
     <div class="w3-container w3-hide" id="faq-page">
         <div class="grid" id="FAQ"></div>
     </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     
     <footer>
         <div class="w3-bottom">
@@ -91,7 +100,7 @@
                 </script>
                 <div class="w3-row">
                     <div class="w3-col s4 m4 l4 w3-container w3-center">
-                        <a onclick="changeImage('mapa');changeCurrentImage('mapa');changeTo('map-page');changePage('map-page');showMap()"><img class='icon' id="mapa" src='images/menu/mapa-vazio-03.png'></a>
+                        <a onclick="changeImage('mapa');changeCurrentImage('mapa');changeTo('map-page');changePage('map-page');"><img class='icon' id="mapa" src='images/menu/mapa-vazio-03.png'></a>
                     </div>
                     <div class="w3-col s4 m4 l4 w3-center">
                         <a onclick="changeImage('timeline');changeCurrentImage('timeline');changeTo('timeline-page');changePage('timeline-page')"><img id="timeline" class="icon" src="images/menu/timeline-cheio-03.png"></a>
