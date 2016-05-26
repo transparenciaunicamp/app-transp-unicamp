@@ -48,7 +48,7 @@
                         <img src="images/logo-03.png" class="logo" width="70%">
                     </div>
                     <div class="w3-col s4 m4 l4 w3-container w3-center">
-                        <p class="title">TIMELINE</p>
+                        <p id="title">TIMELINE</p>
                     </div>
                     <div class="w3-col s4 m4 l4 w3-container w3-center">
                     </div>
@@ -61,8 +61,8 @@
                 $('.logo').css('height', newHeight)
                 var newMargin = (headerHeight - newHeight) / 2
                 $('.logo').css('margin-top', newMargin)
-                $('.title').css('height', newHeight)
-                $('.title').css('padding-top', newMargin)
+                $('#title').css('height', newHeight)
+                $('#title').css('padding-top', newMargin)
             </script>
         </div>
     </header>
@@ -99,14 +99,15 @@
                 </script>
                 <div class="w3-row">
                     <div class="w3-col s4 m4 l4 w3-container w3-center">
-                        <a onclick="changeImage('mapa');changeCurrentImage('mapa');changeTo('map-page');changePage('map-page');">   <img class='icon' id="mapa-vazio" src='images/menu/mapa-vazio-03.png'>
-                          <img class="icon w3-hide" id="mapa-cheio" src="images/menu/mapa-cheio-03.png"> 
+                        <a onclick="changeImage('mapa');changeCurrentImage('mapa');changeTo('map-page');changePage('map-page');">
+                            <img class='icon' id="mapa-vazio" src='images/menu/mapa-vazio-03.png'>
+                            <img class="icon w3-hide" id="mapa-cheio" src="images/menu/mapa-cheio-03.png"> 
                         </a>
                     </div>
                     <div class="w3-col s4 m4 l4 w3-center">
                         <a onclick="changeImage('timeline');changeCurrentImage('timeline');changeTo('timeline-page');changePage('timeline-page')">
                             <img id="timeline-cheio" class="icon" src="images/menu/timeline-cheio-03.png">
-                            <img id="timeline-vazio" class="icon w3-hide" src="images/menu/mapa-vazio-03.png">
+                            <img id="timeline-vazio" class="icon w3-hide" src="images/menu/timeline-vazio-03.png">
                         </a>
                     </div>
                     <div class="w3-col s4 m4 l4 w3-center">
@@ -141,6 +142,7 @@
         }
         function changePage(page) {
             currentPage = page
+            $('#title').text(currentIcon.toUpperCase())
         }
         function changeImage(toIcon) {            
             $('#' + currentIcon + '-cheio').addClass('w3-hide')
