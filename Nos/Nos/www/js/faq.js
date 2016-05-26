@@ -6,12 +6,12 @@ var loadFaq = function() {
             var split = txt[i].split("#");
             var question = split[0];
             if(question.indexOf("}") > -1){
-                var newCategory = $('<br><div class="category"><div class="header"><span>Categoria:'+question.split("}")[0]+'</span></div>');
+                var newCategory = $('<br><div class="faq-category"><div class="header"><span>Categoria:'+question.split("}")[0]+'</span></div>');
                 newCategory.appendTo('#FAQ');
                 question = question.split("}")[1];
             }
             var answer = split[1];
-            var newQuestion = $('<div class="container"><div class="header"><span>Pergunta:'+question+'</span></div><div class="content" style="display:none;"><ul id="output">Resposta:'+answer+'</ul></div></div>');
+            var newQuestion = $('<div class="container"><div class="header faq-question"><span>Pergunta:'+question+'</span></div><div class="content faq-answer"><ul id="output">Resposta:'+answer+'</ul></div></div>');
             newQuestion.appendTo('#FAQ');
         }
         $(".header").click(function () {
