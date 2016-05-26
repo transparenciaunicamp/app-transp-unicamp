@@ -3,6 +3,13 @@
     src: url(../font/NexaBold.otf)
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .nos-footer {
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent, transparent, transparent, transparent, transparent), linear-gradient(to right, #E00036, #E65B20) !important;
 }
@@ -25,13 +32,15 @@
 .whiteBack {
     background-color: #FFFFFF; 
     padding: 15px 15px; 
-    margin: 0px 0px
+    margin: 0px 0px;
+    word-wrap:break-word
 }
 
 .greyBack {
     background-color: #F0F0F0;
     padding: 15px 15px;
-    margin: 0px 0px
+    margin: 0px 0px;
+    word-wrap:break-word
 }
 
 .map {
@@ -39,4 +48,23 @@
     top:0;
     left:0;
     width:100%;
+}
+
+header {
+    width: 100%;
+    background: red;
+    position: fixed;
+    top: 0;
+}
+#app-content {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px 0;
+}
+footer {
+    width: 100%;
+    height: 60px;
+    background: red;
+    position: fixed;
+    bottom: 0;
 }
