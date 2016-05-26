@@ -6,18 +6,21 @@ var loadFaq = function() {
             var split = txt[i].split("#");
             var question = split[0];
             if(question.indexOf("}") > -1){
-                var newCategory = $('<br><div class="faq-category"><div class="header"><span>Categoria:'+question.split("}")[0]+'</span></div>');
+                var newCategory = $('<div class="faq-category w3-container"><div class="faq-header"><span><br>'+question.split("}")[0].toUpperCase()+'</span></div>');
                 newCategory.appendTo('#FAQ');
                 question = question.split("}")[1];
             }
             var answer = split[1];
-            var newQuestion = $('<div class="container"><div class="header faq-question"><span>Pergunta:'+question+'</span></div><div class="content faq-answer"><ul id="output">Resposta:'+answer+'</ul></div></div>');
+            var newQuestion = $('<div class="w3-container"><div class="faq-header faq-question"><span>&rsaquo;'+question+'</span></div><div class="content faq-answer"><ul id="output">'+answer+'</ul></div></div>');
             newQuestion.appendTo('#FAQ');
         }
-        $(".header").click(function () {
+        $(".faq-header").click(function () {
             $header = $(this);
             //getting the next element
             $content = $header.next();
+            if(!($header.hasClass('faq-category'))) {
+                $header.toggleClass('faq-selected')
+            }
             //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
             $content.slideToggle(500, function () {
                 //execute this after slideToggle is done
