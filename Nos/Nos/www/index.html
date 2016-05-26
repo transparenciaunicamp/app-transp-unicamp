@@ -37,7 +37,7 @@
 <body>
     
     <header>
-        <div class="w3-top" style="background-color:white">
+        <div class="w3-top nos-header" style="background-color:white">
             <div class="w3-container nos-header">
                 <script type="text/javascript">
                     var footerHeight = $(window).height() * 0.09
@@ -67,28 +67,32 @@
         </div>
     </header>
     
+<!--
     <br>
     <br>
     <br>
+-->
+    <div id="app-content"> 
+        <div class="w3-container" id="timeline-page" style="padding: 0px 0px 0px 0px; overflow: auto">
+            <div id="myTable"></div>
+        </div>
 
-    <div class="w3-container" id="timeline-page">
-        <div id="myTable"></div>
+        <div class="w3-container w3-hide" id="map-page">
+            <div class='map'><iframe id='mapFrame' onload='ifFrameLoaded()' height='100%' width='100%' frameBorder='0' src='https://a.tiles.mapbox.com/v4/transparenciaunicamp.057nf8mf/attribution,zoompan,zoomwheel.html?access_token=pk.eyJ1IjoidHJhbnNwYXJlbmNpYXVuaWNhbXAiLCJhIjoiY2lvYWYzdzhsMDNpN3cxa3F0M2czaGtraiJ9.Snu_l3HM0COOW0V39I0LvA'></iframe></div>
+        </div>
+
+        <div class="w3-container w3-hide" id="faq-page">
+            <div class="grid" id="FAQ" style="padding: 0px 0px 0px 0px"></div>
+        </div>
     </div>
-    
-    <div class="w3-container w3-hide map-container" id="map-page">
-        <div class='map'><iframe id='mapFrame' onload='ifFrameLoaded()' height='100%' width='100%' frameBorder='0' src='https://a.tiles.mapbox.com/v4/transparenciaunicamp.057nf8mf/attribution,zoompan,zoomwheel.html?access_token=pk.eyJ1IjoidHJhbnNwYXJlbmNpYXVuaWNhbXAiLCJhIjoiY2lvYWYzdzhsMDNpN3cxa3F0M2czaGtraiJ9.Snu_l3HM0COOW0V39I0LvA'></iframe></div>
-    </div>
-    
-    <div class="w3-container w3-hide" id="faq-page">
-        <div class="grid" id="FAQ"></div>
-    </div>
-    
+<!--
     <br>
     <br>
     <br>
     <br>
     <br>
     <br>
+-->
     
     <footer>
         <div class="w3-bottom">
@@ -120,10 +124,13 @@
             </div>
             <script>
                 var footerHeight = parseInt($('.nos-footer').css('height'))
+                var headerHeight = parseInt($('.nos-header').css('height'))
                 var newHeight = footerHeight * 0.4
                 $('.icon').css('height', newHeight)
                 var newMargin = (footerHeight - newHeight) / 2
                 $('.icon').css('margin-top', newMargin)
+                console.log(headerHeight);
+                $('#app-content').css('padding', headerHeight+"px 0px "+footerHeight+"px 0px");
 //                var selectedIcon = footerHeight * 0.55
 //                $('.icon_selected').css('height', selectedIcon)
 //                var newMarginSelected = (footerHeight - selectedIcon) / 2
