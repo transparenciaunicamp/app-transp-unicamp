@@ -22,5 +22,5 @@ Feed.showAll = function() {
         currentClass = nextClass;
         nextClass = tempClass;
     }
-    stopAnimating();
+    stopAnimating("fb");
 }

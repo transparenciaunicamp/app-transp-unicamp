@@ -82,8 +82,8 @@
     </header>
 
     <div id="app-content"> 
-        <div id="spin" style="display:none;"></div>
         <div class="w3-container" id="timeline-page" style="padding: 0px; overflow: auto">
+            <div id="fb-spin" style="display:none;"></div>
             <div id="myTable"></div>
         </div>
 
@@ -93,6 +93,7 @@
 
         <div class="w3-container w3-hide" id="faq-page" style="padding: 0px">
             <div id="FAQ"></div>
+            <div id="faq-spin" style="display:none;"></div>
         </div>
     </div>
     
@@ -168,7 +169,8 @@
         function changeCurrentImage(img) {
             currentIcon = img
         }
-        startAnimating();
+        startAnimating("fb");
+        startAnimating("faq");
     </script>
 
 </body>

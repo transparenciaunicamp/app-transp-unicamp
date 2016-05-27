@@ -1,4 +1,4 @@
-var startAnimating = function() {
+var startAnimating = function(id) {
         var opts = {
           lines: 12, // The number of lines to draw
           length: 7, // The length of each line
@@ -9,8 +9,8 @@ var startAnimating = function() {
           trail: 66, // Afterglow percentage
           shadow: true // Whether to render a shadow
         };
-        $("#spin").show().spin(opts);
+        $("#"+id+"-spin").show().spin(opts);
 };
-var stopAnimating = function() {
-        $("#spin").hide();
+var stopAnimating = function(id) {
+        $("#"+id+"-spin").hide();
 };

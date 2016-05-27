@@ -14,6 +14,7 @@ var loadFaq = function() {
             var newQuestion = $('<div class="w3-container" style="padding: 0px; border: 20px"><div class="faq-header faq-question"><div style="margin-left: 26px;"><span class="right-arrow"><b>'+question+'</b></span></div></div><div class="content faq-answer">'+answer+'</div></div>');
             newQuestion.appendTo('#FAQ');
         }
+        stopAnimating("faq");
         $(".faq-header").click(function () {
             $header = $(this);
             //getting the next element
@@ -24,8 +25,6 @@ var loadFaq = function() {
             }
             $content = $header.next();
             var elem = $header[0].children[0].children[0];
-//            console.log(elem);
-//            console.log($header[1])
             elem.classList.toggle('right-arrow')
             elem.classList.toggle('down-arrow')
             //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
