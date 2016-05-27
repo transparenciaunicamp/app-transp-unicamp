@@ -84,7 +84,7 @@
         <div class="w3-bottom">
             <div class="w3-container nos-footer">
                 <script type="text/javascript">
-                    var footerHeight = $(window).height() * 0.15
+                    var footerHeight = $(window).height() * 0.12
                     $('.nos-footer').css('height',footerHeight)
                 </script>
                 <div class="w3-row">
@@ -111,11 +111,10 @@
             <script>
                 var footerHeight = parseInt($('.nos-footer').css('height'))
                 var headerHeight = parseInt($('.nos-header').css('height'))
-                var newHeight = footerHeight * 0.4
+                var newHeight = footerHeight * 0.5
                 $('.icon').css('height', newHeight)
                 var newMargin = (footerHeight - newHeight) / 2
                 $('.icon').css('margin-top', newMargin)
-                console.log(headerHeight);
                 $('#app-content').css('padding', headerHeight+"px 0px "+footerHeight+"px 0px");
 //                var selectedIcon = footerHeight * 0.55
 //                $('.icon_selected').css('height', selectedIcon)

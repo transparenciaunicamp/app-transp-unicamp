@@ -54,12 +54,16 @@ html, body {
 
 .faq-answer {
     background-color: #F0F0F0;
-    display: none
+    display: none;
+    color: #383838;
+}
+
+.faq-question {
+    color: #383838;
 }
 
 faq-header {
     width: 100%;
-/*    background: red;*/
     position: fixed;
     top: 0;
 }
@@ -75,4 +79,30 @@ footer {
     background: red;
     position: fixed;
     bottom: 0;
+}
+
+.right-arrow:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  width: 0; 
+  height: 0; 
+
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #383838;
+}
+
+.down-arrow:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  width: 0; 
+  height: 0; 
+
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #383838;
 }
