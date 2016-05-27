@@ -17,13 +17,22 @@ var loadFaq = function() {
         $(".faq-header").click(function () {
             $header = $(this);
             //getting the next element
+            var status = 0;
+            if (! $header.hasClass('faq-selected')) {
+                $header.toggleClass('faq-selected')
+                status = 1;
+            }
             $content = $header.next();
-            $header.toggleClass('faq-selected')
-            var elem = $header[0].children[0]
+            var elem = $header[0].children[0].children[0];
+//            console.log(elem);
+//            console.log($header[1])
             elem.classList.toggle('right-arrow')
             elem.classList.toggle('down-arrow')
             //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
             $content.slideToggle(500, function () {
+                if (status === 0) {
+                    $header.toggleClass('faq-selected')
+                }
                 //execute this after slideToggle is done
                 //change text of header based on visibility of content div
                 $header.text(function () {

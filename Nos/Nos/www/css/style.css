@@ -117,8 +117,8 @@ footer {
     background: #FFF;
     color: #383838;
     float: center;
-    width: 200px;
-    height: 200px;
+    width: 0px;
+    height: 0px;
     margin: 0 20px 20px 0;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
