@@ -11,7 +11,7 @@ var loadFaq = function() {
                 question = question.split("}")[1];
             }
             var answer = split[1];
-            var newQuestion = $('<div class="w3-container"><div class="faq-header faq-question"><span class="right-arrow"><b>'+question+'</b></span></div><div class="content faq-answer">'+answer+'</div></div>');
+            var newQuestion = $('<div class="w3-container" style="padding: 0px; border: 20px"><div class="faq-header faq-question"><div style="margin-left: 26px;"><span class="right-arrow"><b>'+question+'</b></span></div></div><div class="content faq-answer">'+answer+'</div></div>');
             newQuestion.appendTo('#FAQ');
         }
         $(".faq-header").click(function () {
@@ -30,7 +30,6 @@ var loadFaq = function() {
                 //change text based on condition
                 });
             });
-
         });
     });
 }

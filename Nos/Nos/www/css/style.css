@@ -50,15 +50,21 @@ html, body {
 
 .faq-selected {
     background-color: #F0F0F0;
+    margin: 0px 0px;
 }
 
 .faq-answer {
     background-color: #F0F0F0;
     display: none;
+    padding: 5px 30px; 
+    margin: 0px 0px;
     color: #383838;
+    word-wrap:break-word;
+    text-align: justify;
 }
 
 .faq-question {
+    padding: 5px 0px; 
     color: #383838;
 }
 
@@ -105,4 +111,17 @@ footer {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 5px solid #383838;
+}
+
+#spin {
+    background: #FFF;
+    color: #383838;
+    float: center;
+    width: 200px;
+    height: 200px;
+    margin: 0 20px 20px 0;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    z-index: 3;
 }
