@@ -125,3 +125,27 @@ footer {
     border-radius: 10px;
     z-index: 3;
 }
+
+
+.mapa {
+    background-image: url(../images/menu/mapa-vazio-03.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50%;
+    
+}
+
+.timeline {
+    background-image: url(../images/menu/timeline-cheio-03.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50%;
+}
+
+.faq {
+    background-image: url(../images/menu/faq-vazio-03.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50%;
+    
+}

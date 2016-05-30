@@ -82,16 +82,16 @@
     </header>
 
     <div id="app-content"> 
-        <div class="w3-container" id="timeline-page" style="padding: 0px; overflow: auto">
+        <div class="w3-container page" id="timeline-page" style="padding: 0px; overflow: auto">
             <div id="fb-spin" style="display:none;"></div>
             <div id="myTable"></div>
         </div>
 
-        <div class="w3-container w3-hide" id="map-page" style="padding: 0px !important">
+        <div class="w3-container page" id="map-page" style="padding: 0px !important">
             <iframe id='mapFrame' onload='ifFrameLoaded()' height='100%' width='100%' frameBorder='0' src='https://a.tiles.mapbox.com/v4/transparenciaunicamp.057nf8mf/attribution,zoompan,zoomwheel.html?access_token=pk.eyJ1IjoidHJhbnNwYXJlbmNpYXVuaWNhbXAiLCJhIjoiY2lvYWYzdzhsMDNpN3cxa3F0M2czaGtraiJ9.Snu_l3HM0COOW0V39I0LvA'></iframe>
         </div>
 
-        <div class="w3-container w3-hide" id="faq-page" style="padding: 0px">
+        <div class="w3-container page" id="faq-page" style="padding: 0px">
             <div id="FAQ"></div>
             <div id="faq-spin" style="display:none;"></div>
         </div>
@@ -106,21 +106,27 @@
                 </script>
                 <div class="w3-row">
                     <div class="w3-col s4 m4 l4 w3-container w3-center">
-                        <a onclick="changeImage('mapa');changeCurrentImage('mapa');changeTo('map-page');changePage('map-page');">
-                            <img class='icon' id="mapa-vazio" src='images/menu/mapa-vazio-03.png'>
-                            <img class="icon w3-hide" id="mapa-cheio" src="images/menu/mapa-cheio-03.png"> 
+                        <a onclick="openTab('map-page'); changeImage('mapa')">
+                            <div class="mapa">
+                            </div>
+<!--                            <img class="icon" src='images/menu/mapa-vazio-03.png'>-->
+<!--                            <img class="icon" id="mapa-cheio" src="images/menu/mapa-cheio-03.png"> -->
                         </a>
                     </div>
-                    <div class="w3-col s4 m4 l4 w3-center">
-                        <a onclick="changeImage('timeline');changeCurrentImage('timeline');changeTo('timeline-page');changePage('timeline-page')">
-                            <img id="timeline-cheio" class="icon" src="images/menu/timeline-cheio-03.png">
-                            <img id="timeline-vazio" class="icon w3-hide" src="images/menu/timeline-vazio-03.png">
+                    <div class="w3-col s4 m4 l4 w3-center w3-container">
+                        <a onclick="openTab('timeline-page'); changeImage('timeline')">
+                            <div class="timeline">
+                            </div>
+<!--                            <img class="icon" src="images/menu/timeline-cheio-03.png">-->
+<!--                            <img id="timeline-vazio" class="icon" src="images/menu/timeline-vazio-03.png">-->
                         </a>
                     </div>
-                    <div class="w3-col s4 m4 l4 w3-center">
-                        <a onclick="changeImage('faq');changeCurrentImage('faq');changeTo('faq-page');changePage('faq-page')">
-                            <img class="icon" id="faq-vazio" src="images/menu/faq-vazio-03.png">
-                            <img class="icon w3-hide" id="faq-cheio" src="images/menu/faq-cheio-03.png">
+                    <div class="w3-col s4 m4 l4 w3-center w3-container">
+                        <a onclick="openTab('faq-page'); changeImage('faq')">
+                            <div class="faq">
+                            </div>
+<!--                            <img class="icon" src="images/menu/faq-vazio-03.png">-->
+<!--                            <img class="icon" id="faq-cheio" src="images/menu/faq-cheio-03.png">-->
                         </a>
                     </div>
                 </div>
@@ -132,6 +138,17 @@
                 $('.icon').css('height', newHeight)
                 var newMargin = (footerHeight - newHeight) / 2
                 $('.icon').css('margin-top', newMargin)
+                
+                $('.mapa').css('height', footerHeight)
+                $('.faq').css('height', footerHeight)
+                $('.timeline').css('height', footerHeight)
+
+                
+                var contentWidth = parseInt($('.icon').parent().css('width'))
+                var imageWidth = parseInt($('.icon').css('width'))
+                var margin = (contentWidth - imageWidth) / 2
+                $('.icon').css('margin-left', newMargin)
+                
                 $('#app-content').css('padding', headerHeight+"px 0px "+footerHeight+"px 0px");
 //                var selectedIcon = footerHeight * 0.55
 //                $('.icon_selected').css('height', selectedIcon)
@@ -144,27 +161,42 @@
                     $('#mapFrame').css('height', mapHeight+'px');
                 }
                 
+                openTab("timeline-page")
+                function openTab(tabName) {
+                    var i;
+                    var x = document.getElementsByClassName("page");
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";  
+                    }
+                    document.getElementById(tabName).style.display = "block";  
+                }
+                            
             </script>
         </div>
     </footer>
     
     
     <script>       
-        var currentPage = 'timeline-page'
         var currentIcon = 'timeline'
-        function changeTo(toId) {
-            $('#' + currentPage).addClass('w3-hide');
-            $('#' + toId).removeClass('w3-hide')
-        }
-        function changePage(page) {
-            currentPage = page
+        function changeImage(toIcon) {      
+//            $('#' + currentIcon + '-cheio').addClass('w3-hide')
+//            $('#' + currentIcon + '-vazio').removeClass('w3-hide')
+//            $('#' + toIcon + '-cheio').removeClass('w3-hide')
+//            $('#' + toIcon + '-vazio').addClass('w3-hide')
+            
+//            $('#' + toIcon).src = "images/menu/" + toIcon + "-vazio-03.png"
+//            $('#' + currentIcon).src = "images/menu/" + currentIcon + "-vazio-03.png"
+            
+
+            
+//            document.getElementById(toIcon).src = "images/menu/" + toIcon + "-cheio-03.png"
+//            document.getElementById(currentIcon).src = "images/menu/" + currentIcon + "-vazio-03.png"
+            
+            $('.' + toIcon).css('background-image','url(images/menu/'+toIcon+'-cheio-03.png)')
+            $('.' + currentIcon).css('background-image','url(images/menu/'+currentIcon+'-vazio-03.png)')
+
+            changeCurrentImage(toIcon)
             $('#title').text(currentIcon.toUpperCase())
-        }
-        function changeImage(toIcon) {            
-            $('#' + currentIcon + '-cheio').addClass('w3-hide')
-            $('#' + currentIcon + '-vazio').removeClass('w3-hide')
-            $('#' + toIcon + '-cheio').removeClass('w3-hide')
-            $('#' + toIcon + '-vazio').addClass('w3-hide')
         }
         function changeCurrentImage(img) {
             currentIcon = img

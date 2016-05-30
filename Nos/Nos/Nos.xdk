@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-project-lite/sample.zip",
       "projectGuid": "d6fca47b-cf71-4765-b87f-8dba0809a137",
-      "lastModifiedDate": 1464472761169,
+      "lastModifiedDate": 1464609707861,
       "creationDate": 1464111616237
     },
     "XDK-app-designer": "false",
@@ -81,15 +81,15 @@
     "buildConfigurations": {
       "Android": {
         "platform_": "android",
-        "runtime_": "Crosswalk with Cordova 3.x",
+        "runtime_": "Cordova 3.x",
         "name_": "Android",
         "preferences_": {
           "android-minSdkVersion": "14",
           "android-targetSdkVersion": "21",
           "android-installLocation": "auto",
           "android-signed": true,
-          "Orientation": "landscape",
-          "Fullscreen": true
+          "Orientation": "default",
+          "Fullscreen": false
         },
         "isActive_": true,
         "appName_": "Nós",
@@ -178,11 +178,13 @@
         "name_": "iOS",
         "preferences_": {
           "ios-configuration": "adhoc",
-          "deployment-target": "8.0"
+          "deployment-target": "8.0",
+          "Fullscreen": true,
+          "Orientation": "portrait"
         },
         "isActive_": true,
-        "appName_": "Nos",
-        "appID_": "xdk.intel.cordova.template.lite",
+        "appName_": "Nós",
+        "appID_": "unicamp.transparencia.nos",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
@@ -190,13 +192,7 @@
           ],
           "intents": [
             "http://*/*",
-            "https://*/*",
-            "tel:*",
-            "sms:*",
-            "mailto:*",
-            "geo:*",
-            "itms:*",
-            "itms-apps:*"
+            "https://*/*"
           ],
           "navigation": [],
           "properties": {}
@@ -266,18 +262,76 @@
             "relPath": "icons/ios/100x100.png",
             "height": 100,
             "width": 100
+          },
+          {
+            "relPath": "icons/ios/60x60.png",
+            "height": 60,
+            "width": 60
+          },
+          {
+            "relPath": "icons/ios/76x76.png",
+            "height": 76,
+            "width": 76
+          },
+          {
+            "relPath": "icons/ios/40x40.png",
+            "height": 40,
+            "width": 40
           }
         ],
-        "splashes_": [],
+        "splashes_": [
+          {
+            "relPath": "splash/ios/s_750x1334.png",
+            "height": 1334,
+            "width": 750,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "splash/ios/s_1242x2208.png",
+            "height": 2208,
+            "width": 1242,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "splash/ios/s_640x1336.png",
+            "height": 1136,
+            "width": 640,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "splash/ios/s_640x960.png",
+            "height": 960,
+            "width": 640,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "splash/ios/s_320x480.png",
+            "height": 480,
+            "width": 320,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "splash/ios/s_1536x2048.png",
+            "height": 2048,
+            "width": 1536,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "splash/ios/s_768x1024.png",
+            "height": 1024,
+            "width": 768,
+            "orientation": "portrait"
+          }
+        ],
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "certificateId_": "",
         "iosProvs_": [],
         "cordovaCLIVersion_": "5.4.1",
-        "appAuthor_": "Intel XDK",
+        "appAuthor_": "Transparência Unicamp",
         "crosswalkVersion_": "16",
-        "appVersion_": "0.0.1",
-        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
+        "appVersion_": "1.0.0",
+        "appDescription_": "Aplicativo desenvolvido para trazer transparência e facilidade na obtenção de informações relacionadas aos movimentos estudantis."
       },
       "Windows8": {
         "platform_": "windows8",
