@@ -32,11 +32,24 @@ var pages = [
 
 var Facebook = {
     feed: function(page, done) {
+//        console.log("REC");
         FB.api(
             '/'+page+'/feed',
             'GET',
             {"fields":"attachments,message,created_time", "limit":"3", "access_token":token},
             function(response) {
+//                console.log(response.data.length);
+                if (response.data) {
+                    for (var i = response.data.length; i < 3; i++) {
+                        done();
+                    }
+                } else {
+                    console.log("DEU RUIM " + page);
+                    done();
+                    done();
+                    done();
+                }
+                
                 for (var i in response.data){
                     var message = "";
                     var image = "";
@@ -54,8 +67,10 @@ var Facebook = {
                         message = "";
                     }
                     if (message == null) message = "";
-                    FeedTable.createRow(message, image, page, function(row) {
-                        Feed.addPost(row,response.data[i].created_time)
+                    var date = response.data[i].created_time;
+                    FeedTable.createRow(message, image, page, date, function(row, date) {
+//                        console.log(date);
+                        Feed.addPost(row, date);
                         done();
                     });
                     
@@ -71,10 +86,15 @@ var Facebook = {
             version    : 'v2.6'
             });
             var totalDone = 0;
+            console.log("\n<<<<<<<STARTING>>>>>>>>\n")
             for (var item in pages) {
+//                console.log("REQ " + item);
                 Facebook.feed(pages[item], function(){
                     totalDone++;
-                    if (totalDone == pages.length) {
+//                    console.log(totalDone + "  ++++PARCIAL++++  " + pages.length * 3);
+                    if (totalDone == pages.length*3) {
+//                        console.log(totalDone + "    " + pages.length);
+//                        console.log("DONE ALL PAGES NOW:::::::::::WILL SHOW")
                         Feed.showAll(document.getElementById("myTable"));
                     }
                 });
