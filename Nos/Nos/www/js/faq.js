@@ -18,26 +18,44 @@ var loadFaq = function() {
         $(".faq-header").click(function () {
             $header = $(this);
             //getting the next element
-            var status = 0;
-            if (! $header.hasClass('faq-selected')) {
-                $header.toggleClass('faq-selected')
-                status = 1;
-            }
+//            var status = 0;
+//            if (! $header.hasClass('faq-selected')) {
+//                $header.toggleClass('faq-selected')
+//                status = 1;
+//            }
+            $header.toggleClass('faq-selected')
             $content = $header.next();
             var elem = $header[0].children[0].children[0];
             elem.classList.toggle('right-arrow')
             elem.classList.toggle('down-arrow')
             //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
-            $content.slideToggle(500, function () {
-                if (status === 0) {
-                    $header.toggleClass('faq-selected')
-                }
-                //execute this after slideToggle is done
-                //change text of header based on visibility of content div
-                $header.text(function () {
-                //change text based on condition
-                });
-            });
+            if ($content[0].className.indexOf("w3-show") == -1) {
+                $content[0].className += " w3-show";
+            } else { 
+                $content[0].className = $content[0].className.replace(" w3-show", "");
+            }
+//            $content.slideToggle(500, function () {
+//                if (status === 0) {
+//                    $header.toggleClass('faq-selected')
+//                }
+//                //execute this after slideToggle is done
+//                //change text of header based on visibility of content div
+//                $header.text(function () {
+//                //change text based on condition
+//                });
+//            });
         });
+        $(".faq-answer").click(function () {
+            $question = $(this);
+            $question.prev().toggleClass('faq-selected');
+            var elem = $question.prev()[0].children[0].children[0];
+            elem.classList.toggle('right-arrow')
+            elem.classList.toggle('down-arrow')
+            if ($question[0].className.indexOf("w3-show") == -1) {
+                $question[0].className += " w3-show";
+            } else { 
+                $question[0].className = $question[0].className.replace(" w3-show", "");
+            }
+        })
     });
 }
