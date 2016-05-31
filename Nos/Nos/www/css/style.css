@@ -1,0 +1,151 @@
+@font-face {
+    font-family: Nexa-Bold;
+    src: url(../font/NexaBold.otf)
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.nos-footer {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent, transparent, transparent, transparent, transparent), linear-gradient(to right, #E00036, #E65B20) !important;
+}
+
+.nos-header {
+    font-family: Nexa-Bold;
+    color: #383838;
+    vertical-align: middle !important
+}
+
+.horizontal-rule{
+    position: absolute;
+    width: 600%;
+    left: 50%;
+    margin-left: -300%;
+    height: 1px;
+    background-color: #383838
+}
+ 
+.whiteBack {
+    background-color: #FFFFFF; 
+    padding: 15px 15px; 
+    margin: 0px 0px;
+    word-wrap:break-word
+}
+
+.greyBack {
+    background-color: #F0F0F0;
+    padding: 15px 15px;
+    margin: 0px 0px;
+    word-wrap:break-word
+}
+
+.faq-category {
+    font-family: Nexa-Bold;
+    color: #DB0032
+}
+
+.faq-selected {
+    background-color: #F0F0F0;
+    margin: 0px 0px;
+}
+
+.faq-answer {
+    background-color: #F0F0F0;
+    display: none;
+    padding: 5px 30px; 
+    margin: 0px 0px;
+    color: #383838;
+    word-wrap:break-word;
+    text-align: justify;
+}
+
+.faq-question {
+    padding: 5px 0px; 
+    color: #383838;
+}
+
+faq-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+#app-content {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px 0;
+}
+
+footer {
+    width: 100%;
+    background: red;
+    position: fixed;
+    bottom: 0;
+}
+
+.right-arrow:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  width: 0; 
+  height: 0; 
+
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #383838;
+}
+
+.down-arrow:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  width: 0; 
+  height: 0; 
+
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #383838;
+}
+
+#fb-spin {
+    background: #FFF;
+    color: #383838;
+    float: center;
+    width: 0px;
+    height: 0px;
+    margin: 0 20px 20px 0;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    z-index: 3;
+}
+
+
+.mapa {
+    background-image: url(../images/menu/mapa-vazio-03.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50%;
+    
+}
+
+.timeline {
+    background-image: url(../images/menu/timeline-cheio-03.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50%;
+}
+
+.faq {
+    background-image: url(../images/menu/faq-vazio-03.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50%;
+    
+}

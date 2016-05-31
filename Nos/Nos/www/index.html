@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+<head>
+    <title>Nós</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        /* following two viewport lines are equivalent to the meta viewport statement above, needed for Windows */
+        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+    </style>
+    
+    <link href="css/w3.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="cordova.js"></script>          <!-- phantom library, needed for Cordova api calls, added during build -->
+    <script src="js/app.js"></script>           <!-- recommended location of your JavaScript code relative to other JS files -->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see README for details -->
+    <script type="text/javascript" charset="utf-8" src="js/facebook.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/feed.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/table.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/faq.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/spin.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/activityIndicator.js"></script>
+    <script>
+        Facebook.start();
+        loadFaq();
+        $.fn.spin = function(opts) {
+			this.each(function() {
+				var $this = $(this),
+					spinner = $this.data('spinner');
+				if (spinner) spinner.stop();
+				if (opts !== false) {
+				  opts = $.extend({color: $this.css('color')}, opts);
+				  spinner = new Spinner(opts).spin(this);
+				  $this.data('spinner', spinner);
+				}
+			});
+			return this;
+		};
+    </script>
+</head>
+
+<body>
+    
+    <header>
+        <div class="w3-top nos-header" style="background-color:white">
+            <div class="w3-container nos-header">
+                <script type="text/javascript">
+                    var footerHeight = $(window).height() * 0.09
+                    $('.nos-header').css('height',footerHeight)
+                </script>
+                <div class="w3-row">
+                    <div class="w3-col s4 m4 l4 w3-container w3-center">
+                        <img src="images/logo-03.png" class="logo" width="70%">
+                    </div>
+                    <div class="w3-col s4 m4 l4 w3-container w3-center">
+                        <p id="title">TIMELINE</p>
+                    </div>
+                    <div class="w3-col s4 m4 l4 w3-container w3-center">
+                    </div>
+                </div>
+            </div>
+            <div class="horizontal-rule"></div>
+            <script>
+                var headerHeight = parseInt($('.nos-header').css('height'))
+                var newHeight = headerHeight * 0.8
+                $('.logo').css('height', newHeight)
+                var newMargin = (headerHeight - newHeight) / 2
+                $('.logo').css('margin-top', newMargin)
+                $('#title').css('height', newHeight)
+                $('#title').css('padding-top', newMargin)
+            </script>
+        </div>
+    </header>
+
+    <div id="app-content"> 
+        <div class="w3-container page" id="timeline-page" style="padding: 0px; overflow: auto">
+            <div id="fb-spin" style="display:none;"></div>
+            <div id="myTable"></div>
+        </div>
+
+        <div class="w3-container page" id="map-page" style="padding: 0px !important">
+            <iframe id='mapFrame' onload='ifFrameLoaded()' height='100%' width='100%' frameBorder='0' src='https://a.tiles.mapbox.com/v4/transparenciaunicamp.057nf8mf/attribution,zoompan,zoomwheel.html?access_token=pk.eyJ1IjoidHJhbnNwYXJlbmNpYXVuaWNhbXAiLCJhIjoiY2lvYWYzdzhsMDNpN3cxa3F0M2czaGtraiJ9.Snu_l3HM0COOW0V39I0LvA'></iframe>
+        </div>
+
+        <div class="w3-container page" id="faq-page" style="padding: 0px">
+            <div id="FAQ"></div>
+            <div id="faq-spin" style="display:none;"></div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="w3-bottom">
+            <div class="w3-container nos-footer">
+                <script type="text/javascript">
+                    var footerHeight = $(window).height() * 0.12
+                    $('.nos-footer').css('height',footerHeight)
+                </script>
+                <div class="w3-row">
+                    <div class="w3-col s4 m4 l4 w3-container w3-center">
+                        <a onclick="openTab('map-page'); changeImage('mapa')">
+                            <div class="mapa">
+                            </div>
+<!--                            <img class="icon" src='images/menu/mapa-vazio-03.png'>-->
+<!--                            <img class="icon" id="mapa-cheio" src="images/menu/mapa-cheio-03.png"> -->
+                        </a>
+                    </div>
+                    <div class="w3-col s4 m4 l4 w3-center w3-container">
+                        <a onclick="openTab('timeline-page'); changeImage('timeline')">
+                            <div class="timeline">
+                            </div>
+<!--                            <img class="icon" src="images/menu/timeline-cheio-03.png">-->
+<!--                            <img id="timeline-vazio" class="icon" src="images/menu/timeline-vazio-03.png">-->
+                        </a>
+                    </div>
+                    <div class="w3-col s4 m4 l4 w3-center w3-container">
+                        <a onclick="openTab('faq-page'); changeImage('faq')">
+                            <div class="faq">
+                            </div>
+<!--                            <img class="icon" src="images/menu/faq-vazio-03.png">-->
+<!--                            <img class="icon" id="faq-cheio" src="images/menu/faq-cheio-03.png">-->
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var footerHeight = parseInt($('.nos-footer').css('height'))
+                var headerHeight = parseInt($('.nos-header').css('height'))
+                var newHeight = footerHeight * 0.5
+                $('.icon').css('height', newHeight)
+                var newMargin = (footerHeight - newHeight) / 2
+                $('.icon').css('margin-top', newMargin)
+                
+                $('.mapa').css('height', footerHeight)
+                $('.faq').css('height', footerHeight)
+                $('.timeline').css('height', footerHeight)
+
+                
+                var contentWidth = parseInt($('.icon').parent().css('width'))
+                var imageWidth = parseInt($('.icon').css('width'))
+                var margin = (contentWidth - imageWidth) / 2
+                $('.icon').css('margin-left', newMargin)
+                
+                $('#app-content').css('padding', headerHeight+"px 0px "+footerHeight+"px 0px");
+//                var selectedIcon = footerHeight * 0.55
+//                $('.icon_selected').css('height', selectedIcon)
+//                var newMarginSelected = (footerHeight - selectedIcon) / 2
+//                $('.icon_selected').css('margin-top', newMarginSelected)
+                
+                function ifFrameLoaded() {
+                    var headerHeight = parseInt($('.nos-header').css('height'))
+                    var mapHeight = $(window).height() - footerHeight - headerHeight
+                    $('#mapFrame').css('height', mapHeight+'px');
+                }
+                
+                openTab("timeline-page")
+                function openTab(tabName) {
+                    var i;
+                    var x = document.getElementsByClassName("page");
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";  
+                    }
+                    document.getElementById(tabName).style.display = "block";  
+                }
+                            
+            </script>
+        </div>
+    </footer>
+    
+    
+    <script>       
+        var currentIcon = 'timeline'
+        function changeImage(toIcon) {      
+//            $('#' + currentIcon + '-cheio').addClass('w3-hide')
+//            $('#' + currentIcon + '-vazio').removeClass('w3-hide')
+//            $('#' + toIcon + '-cheio').removeClass('w3-hide')
+//            $('#' + toIcon + '-vazio').addClass('w3-hide')
+            
+//            $('#' + toIcon).src = "images/menu/" + toIcon + "-vazio-03.png"
+//            $('#' + currentIcon).src = "images/menu/" + currentIcon + "-vazio-03.png"
+            
+
+            
+//            document.getElementById(toIcon).src = "images/menu/" + toIcon + "-cheio-03.png"
+//            document.getElementById(currentIcon).src = "images/menu/" + currentIcon + "-vazio-03.png"
+            
+            $('.' + toIcon).css('background-image','url(images/menu/'+toIcon+'-cheio-03.png)')
+            $('.' + currentIcon).css('background-image','url(images/menu/'+currentIcon+'-vazio-03.png)')
+
+            changeCurrentImage(toIcon)
+            $('#title').text(currentIcon.toUpperCase())
+        }
+        function changeCurrentImage(img) {
+            currentIcon = img
+        }
+        startAnimating("fb");
+        startAnimating("faq");
+    </script>
+
+</body>
+
+
+    
+</html>
