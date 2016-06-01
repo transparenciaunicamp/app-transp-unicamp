@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-project-lite/sample.zip",
       "projectGuid": "d6fca47b-cf71-4765-b87f-8dba0809a137",
-      "lastModifiedDate": 1464609707861,
+      "lastModifiedDate": 1464796227235,
       "creationDate": 1464111616237
     },
     "XDK-app-designer": "false",
@@ -88,7 +88,7 @@
           "android-targetSdkVersion": "21",
           "android-installLocation": "auto",
           "android-signed": true,
-          "Orientation": "default",
+          "Orientation": "portrait",
           "Fullscreen": false
         },
         "isActive_": true,
@@ -167,7 +167,7 @@
         "certificateId_": "OTzYaT8pikilqH-r3j8k-w2",
         "cordovaCLIVersion_": "5.4.1",
         "crosswalkVersion_": "16",
-        "appVersion_": "1.0.0",
+        "appVersion_": "1.0.1",
         "appDescription_": "Aplicativo desenvolvido para trazer transparência e facilidade na obtenção de informações relacionadas aos movimentos estudantis.",
         "appAuthor_": "Transparência Unicamp",
         "appVersionCode_": "1"

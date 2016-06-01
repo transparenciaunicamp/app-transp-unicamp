@@ -18,22 +18,37 @@ Date.prototype.timeSince = function() {
 
     var interval = Math.floor(seconds / 31536000);
 
+    if (interval == 1) {
+        return interval + " ano";
+    }
     if (interval > 1) {
         return interval + " anos";
     }
     interval = Math.floor(seconds / 2592000);
+    if (interval == 1) {
+        return interval + " mês";
+    }
     if (interval > 1) {
-        return interval + " mêses";
+        return interval + " meses";
     }
     interval = Math.floor(seconds / 86400);
+    if (interval == 1) {
+        return interval + " dia";
+    }
     if (interval > 1) {
         return interval + " dias";
     }
     interval = Math.floor(seconds / 3600);
+    if (interval == 1) {
+        return interval + " hora";
+    }
     if (interval > 1) {
         return interval + " horas";
     }
     interval = Math.floor(seconds / 60);
+    if (interval == 1) {
+        return interval + " minutos";
+    }
     if (interval > 1) {
         return interval + " minutos";
     }
