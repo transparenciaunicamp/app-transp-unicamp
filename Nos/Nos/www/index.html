@@ -107,25 +107,19 @@
                 <div class="w3-row">
                     <div class="w3-col s4 m4 l4 w3-container w3-center">
                         <a onclick="openTab('map-page'); changeImage('mapa')">
-                            <div class="mapa">
-                            </div>
-<!--                            <img class="icon" src='images/menu/mapa-vazio-03.png'>-->
+                                <img class="icon mapa" src='images/menu/mapa-vazio-03.png'>
 <!--                            <img class="icon" id="mapa-cheio" src="images/menu/mapa-cheio-03.png"> -->
                         </a>
                     </div>
                     <div class="w3-col s4 m4 l4 w3-center w3-container">
-                        <a onclick="openTab('timeline-page'); changeImage('timeline')">
-                            <div class="timeline">
-                            </div>
+                        <a onclick="openTab('timeline-page'); changeImage('timeline')">                            
 <!--                            <img class="icon" src="images/menu/timeline-cheio-03.png">-->
-<!--                            <img id="timeline-vazio" class="icon" src="images/menu/timeline-vazio-03.png">-->
+                                <img id="timeline-vazio" class="icon timeline icon-selected" src="images/menu/timeline-vazio-03.png">
                         </a>
                     </div>
                     <div class="w3-col s4 m4 l4 w3-center w3-container">
                         <a onclick="openTab('faq-page'); changeImage('faq')">
-                            <div class="faq">
-                            </div>
-<!--                            <img class="icon" src="images/menu/faq-vazio-03.png">-->
+                                <img class="icon faq" src="images/menu/faq-vazio-03.png">
 <!--                            <img class="icon" id="faq-cheio" src="images/menu/faq-cheio-03.png">-->
                         </a>
                     </div>
@@ -139,21 +133,13 @@
                 var newMargin = (footerHeight - newHeight) / 2
                 $('.icon').css('margin-top', newMargin)
                 
-                $('.mapa').css('height', footerHeight)
-                $('.faq').css('height', footerHeight)
-                $('.timeline').css('height', footerHeight)
-
-                
+         
                 var contentWidth = parseInt($('.icon').parent().css('width'))
                 var imageWidth = parseInt($('.icon').css('width'))
                 var margin = (contentWidth - imageWidth) / 2
                 $('.icon').css('margin-left', newMargin)
                 
                 $('#app-content').css('padding', headerHeight+"px 0px "+footerHeight+"px 0px");
-//                var selectedIcon = footerHeight * 0.55
-//                $('.icon_selected').css('height', selectedIcon)
-//                var newMarginSelected = (footerHeight - selectedIcon) / 2
-//                $('.icon_selected').css('margin-top', newMarginSelected)
                 
                 function ifFrameLoaded() {
                     var headerHeight = parseInt($('.nos-header').css('height'))
@@ -179,24 +165,15 @@
     <script>       
         var currentIcon = 'timeline'
         function changeImage(toIcon) {      
-//            $('#' + currentIcon + '-cheio').addClass('w3-hide')
-//            $('#' + currentIcon + '-vazio').removeClass('w3-hide')
-//            $('#' + toIcon + '-cheio').removeClass('w3-hide')
-//            $('#' + toIcon + '-vazio').addClass('w3-hide')
             
-//            $('#' + toIcon).src = "images/menu/" + toIcon + "-vazio-03.png"
-//            $('#' + currentIcon).src = "images/menu/" + currentIcon + "-vazio-03.png"
+            if(currentIcon != toIcon) {
             
-
+                $('.' + toIcon).toggleClass('icon-selected')
+                $('.' + currentIcon).toggleClass('icon-selected')
+                changeCurrentImage(toIcon)
+                $('#title').text(currentIcon.toUpperCase())
+            }
             
-//            document.getElementById(toIcon).src = "images/menu/" + toIcon + "-cheio-03.png"
-//            document.getElementById(currentIcon).src = "images/menu/" + currentIcon + "-vazio-03.png"
-            
-            $('.' + toIcon).css('background-image','url(images/menu/'+toIcon+'-cheio-03.png)')
-            $('.' + currentIcon).css('background-image','url(images/menu/'+currentIcon+'-vazio-03.png)')
-
-            changeCurrentImage(toIcon)
-            $('#title').text(currentIcon.toUpperCase())
         }
         function changeCurrentImage(img) {
             currentIcon = img

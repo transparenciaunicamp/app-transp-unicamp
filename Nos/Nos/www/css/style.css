@@ -78,6 +78,9 @@ faq-header {
     width: 100%;
     margin: 0 auto;
     padding: 0px 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 footer {
@@ -126,26 +129,8 @@ footer {
     z-index: 3;
 }
 
-
-.mapa {
-    background-image: url(../images/menu/mapa-vazio-03.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 50%;
-    
+.icon-selected {
+    border-bottom: white solid 0.5px;
 }
 
-.timeline {
-    background-image: url(../images/menu/timeline-cheio-03.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 50%;
-}
 
-.faq {
-    background-image: url(../images/menu/faq-vazio-03.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 50%;
-    
-}
